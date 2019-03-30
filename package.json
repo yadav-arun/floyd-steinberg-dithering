@@ -1,0 +1,28 @@
+{
+  "name": "floyd-steinberg-dithering",
+  "version": "1.0.0",
+  "description": "Image dithering using floyd-steinberg algo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yadav-arun/floyd-steinberg-dithering.git"
+  },
+  "keywords": [
+    "dithering",
+    "floyd-steinberg",
+    "image",
+    "dither"
+  ],
+  "author": "Arun Yadav",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yadav-arun/floyd-steinberg-dithering/issues"
+  },
+  "homepage": "https://github.com/yadav-arun/floyd-steinberg-dithering#readme",
+  "dependencies": {
+    "jimp": "^0.6.1"
+  }
+}
