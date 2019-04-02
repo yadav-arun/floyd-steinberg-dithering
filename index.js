@@ -52,6 +52,7 @@ function FloydSteinbergDithering(errorMultiplier, data, w, h) {
     return data;
 }
 
+// instead of this, use two params from user created file, for image path , and saving absolute path
 if (!process.argv[2]) {
     console.log("Provide image path");
 } else {
