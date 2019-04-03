@@ -1,4 +1,3 @@
-// #!/usr/bin/env node
 var Jimp = require('jimp');
 
 function FloydSteinbergDithering(errorMultiplier, data, w, h) {
@@ -52,25 +51,33 @@ function FloydSteinbergDithering(errorMultiplier, data, w, h) {
     return data;
 }
 
-// instead of this, use two params from user created file, for image path , and saving absolute path
-if (!process.argv[2]) {
-    console.log("Provide image path");
-} else {
-    try {
-        Jimp.read(process.argv[2]).then(image => {
-            var a = FloydSteinbergDithering(1, image.bitmap.data, image.bitmap.width, image.bitmap.height);
-            new Jimp({ data: a, width: image.bitmap.width, height: image.bitmap.height }, (err, image) => {
-                image.write('dither.png')
-                console.log('File saved as dither.png');
-            });
-        }, err => {
-            if (err.code == "ENOENT") {
-                console.log("Mentioned file does not exist");
-            } else {
+module.exports = {
+    process : function (src, dest) {
+        console.log(src);
+        console.log(dest);
+        
+        if (!src) {
+            console.log("Provide image path");
+        } else {
+            try {
+                Jimp.read(src).then(image => {
+                    var a = FloydSteinbergDithering(1, image.bitmap.data, image.bitmap.width, image.bitmap.height);
+                    new Jimp({ data: a, width: image.bitmap.width, height: image.bitmap.height }, (err, image) => {
+                        image.write(dest)
+                        console.log('File saved at ' + dest);
+                    });
+                }, err => {
+                    if (err.code == "ENOENT") {
+                        console.log("Mentioned file does not exist");
+                    } else {
+                        console.log("Use correct filname, and make sure file used is image");
+                    }
+                });
+            } catch (error) {
                 console.log("Use correct filname, and make sure file used is image");
             }
-        });
-    } catch (error) {
-        console.log("Use correct filname, and make sure file used is image");
+        }
     }
+
 }
+
