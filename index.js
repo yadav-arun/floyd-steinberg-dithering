@@ -53,9 +53,6 @@ function FloydSteinbergDithering(errorMultiplier, data, w, h) {
 
 module.exports = {
     process : function (src, dest) {
-        console.log(src);
-        console.log(dest);
-        
         if (!src) {
             console.log("Provide image path");
         } else {
